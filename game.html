@@ -1,8 +1,69 @@
 <html>
 <head>
 <title>This is a test title!</title>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8="
+	crossorigin="anonymous"></script>
 </head>
 <body>
-This is a test
+<style>
+   .wrapper {
+       height: 50%;
+       border: 0px red solid;
+       margin-top: 50px;
+       margin-bottom: 50px;       
+       margin-left: 50px;
+       margin-right: 50px;
+   }
+   
+   .wrapper div {
+       padding: 3px;
+   }
+</style>
+
+<div class="wrapper">
+    <div style="font-size:20px; cursor: pointer;">
+    If you click me, then I'll go away!
+    </div>
+
+    <div style="color: red; cursor: pointer;">
+    If you click me, then... 
+    </div>
+
+    <button class="reset-all">Reset</button>
+    <button class="hide-all">Hide Everything</button>
+</div>
+
+<script>
+    $(".wrapper div").on("mouseenter", 
+    function() {
+        $(this).css("background", "grey");
+    });
+
+    $(".wrapper div").on("mouseleave", 
+    function() {
+        $(this).css("background", "white");
+    });
+
+    $(".wrapper div:first()").on("click", 
+    function(){ 
+        $(this).hide(); 
+    });
+
+    $(".wrapper div:last()").on("click", 
+    function(){ 
+        window.alert("...see what I say!")
+    });
+
+    $(".reset-all").on("click",
+    function(){
+        $(".wrapper div").show();
+    });
+    
+    $(".hide-all").on("click",
+    function(){
+        $(".wrapper div").hide();
+    });
+</script>
 </body>
 </html>
