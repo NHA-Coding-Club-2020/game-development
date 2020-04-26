@@ -1,8 +1,24 @@
 <html>
 <head>
 <title>This is a title</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
-</body>
+<body>
+<style>
+    .wraper {
+        height: 50%;
+        border: 5px blue dotted;
+        margin-top: 50px;
+        margin-bottom: 50px;
+        margin-left: 50px;
+        margin-right: 50px;
+        padding: 5px; 
+    }
+
+    .wraper div{
+        padding: 3px;
+    }
+    </style>            
 <div class="wraper">
     <div style="font-size:20px; cursor: pointer;">
     If you click me, then I'll go away!
@@ -11,6 +27,19 @@
     <div style="color: red; cursor: pointer;">
     If you click me, then...
     </div>
-</div>    
+    <button class="reset-all">Reset</button>
+    <button class="hide all">Hide Everything</button>    
+</div>
+<script>
+    $(".wraper div:first()").on ("click",
+    function(){
+        $(this).hide();
+    });
+
+    $(".wraper div:last()").on("click", 
+    function(){
+        window.alert("see what I say!")
+    });
+</script>
 </body>
-</html>
+</html> 
