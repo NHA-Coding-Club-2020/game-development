@@ -5,9 +5,9 @@
 </head>
 <body>
 <style>
-    .wraper {
+    .wrapper {
         height: 50%;
-        border: 5px blue dotted;
+        border: 5px yellow double;
         margin-top: 50px;
         margin-bottom: 50px;
         margin-left: 50px;
@@ -15,11 +15,11 @@
         padding: 5px; 
     }
 
-    .wraper div{
+    .wrapper div{
         padding: 3px;
     }
     </style>            
-<div class="wraper">
+<div class="wrapper">
     <div style="font-size:20px; cursor: pointer;">
     If you click me, then I'll go away!
     </div>
@@ -28,18 +28,41 @@
     If you click me, then...
     </div>
     <button class="reset-all">Reset</button>
-    <button class="hide all">Hide Everything</button>    
+    <button class="hide-all">Hide Everything</button>    
 </div>
 <script>
-    $(".wraper div:first()").on ("click",
+    $(".wrapper div:first()").on ("click",
     function(){
         $(this).hide();
     });
 
-    $(".wraper div:last()").on("click", 
+    $(".wrapper div:last").on("click", 
     function(){
         window.alert("see what I say!")
     });
+    $(".reset-all").on("click",
+    function(){
+        $(".wrapper div").show();
+    });
+
+    $(".hide-all").on("click",
+    function(){
+        $(".wrapper div").hide();
+    });
+
+    $(".wrapper div").on("mouseenter",
+    function() {
+        $(this).css("background", "lightgrey");
+        $(this).css("border", "1px solid purple");
+    });
+
+    $(".wrapper div").on("mouseleave",
+    function() {
+        $(this).css("background", "white");
+        $(this).css("border", "1px solid white");
+    });
+
+    
 </script>
 </body>
 </html> 
