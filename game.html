@@ -1,6 +1,6 @@
 <html>
 <head>
-<title>This is a title!</title>
+<title>Move the Dot Game</title>
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
     integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8="
 	crossorigin="anonymous"></script>
@@ -9,11 +9,12 @@
 <style>
    .wrapper {
        height: 50%;
-       border: 0px red solid;
+       border: 5px purple dotted;
        margin-top: 50px;
        margin-bottom: 50px;       
-       margin-left: 50px;
-       margin-right: 50px;
+       margin-left: auto;
+       margin-right: auto;
+       padding: 40px
    }
    
    .wrapper div {
@@ -23,15 +24,13 @@
 
 <div class="wrapper">
     <div style="font-size:20px; cursor: pointer;">
-    If you click me, then I'll go away!
-    </div>
+    Welcome to Move the Dot - A Game of Skill (S)  
+!!     </d
+iv>
+    <canvas class="game-board">Your browser does not support canvas.</canvas>
 
-    <div style="color: red; cursor: pointer;">
-    If you click me, then... 
-    </div>
-
-    <button class="reset-all">Reset</button>
-    <button class="hide-all">Hide Everything</button>
+    <button class="start game">Start Game</button>
+    <button class="reset-game">Reset</button>     
 </div>
 
 <script>
