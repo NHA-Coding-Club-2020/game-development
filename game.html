@@ -8,61 +8,70 @@
 <body>
 <style>
    .wrapper {
-       height: 50%;
-       border: 0px red solid;
+       border: 5px purple dotted;
+       width: 600px;
        margin-top: 50px;
        margin-bottom: 50px;       
-       margin-left: 50px;
-       margin-right: 50px;
+       margin-left: auto;
+       margin-right: auto;
+       padding: 40px;
    }
    
    .wrapper div {
        padding: 3px;
    }
+
+    .game-board {
+        width: 100%;
+    }
 </style>
 
 <div class="wrapper">
     <div style="font-size:20px; cursor: pointer;">
-    If you click me, then I'll go away!
+    Welcome to Move the Dot - A Game of Skill (Sort of)!!
     </div>
 
-    <div style="color: red; cursor: pointer;">
-    If you click me, then... 
-    </div>
-
-    <button class="reset-all">Reset</button>
-    <button class="hide-all">Hide Everything</button>
+    <canvas class="game-board">Your browser does not support canvas.</canvas>
+    
+    <button class="start-game">Start Game</button>
+    <button class="reset-game">Reset</button>
 </div>
 
 <script>
-    $(".wrapper div").on("mouseenter", 
-    function() {
-        $(this).css("background", "grey");
-    });
-
-    $(".wrapper div").on("mouseleave", 
-    function() {
-        $(this).css("background", "white");
-    });
-
-    $(".wrapper div:first()").on("click", 
-    function(){ 
-        $(this).hide(); 
-    });
-
-    $(".wrapper div:last()").on("click", 
-    function(){ 
-        window.alert("...see what I say!")
-    });
-
-    $(".reset-all").on("click",
-    function(){
-        $(".wrapper div").show();
-    });
+    var canvas = $('canvas.game-board');
+    var context = canvas[0].getContext('2d');
+    var canvasWidth = canvas.width();
+    var canvasHeight = canvas.height();
+    canvas.attr({height: canvasHeight, width: canvasWidth});
+    var frames = 150;
+    var currentFrame = 0;
+    var dot = { x: 50, y: 50, radius: 25 };
+    drawDot(dot);
     
-    $(".hide-all").on("click",
-    function(){
-        $(".wrapper div").hide();
+    function drawDot(dot) {
+        context.beginPath();
+        context.arc(dot.x, dot.y, dot.radius, 0, 2 * Math.PI, false);
+        context.fillStyle = '#F03C69';
+        context.fill();
+    }
+
+    function moveDot() {
+        context.clearRect(0, 0, canvasWidth, canvasHeight);
+        dot.x += 1;
+        dot.y += 1;
+        drawDot(dot);
+        currentFrame += 1;
+        if( currentFrame == frames ) {
+            currentFrame = 0;
+            dot = { x: 50, y: 50, radius: 25 };
+        }
+
+        window.requestAnimationFrame(moveDot);
+    }
+
+    
+    $(".start-game").on("click", function() {
+        window.requestAnimationFrame(moveDot);
     });
 </script>
 </body>
