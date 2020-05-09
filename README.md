@@ -14,7 +14,6 @@ Step 4. Update the ```<title></title>``` tag to match below - STOP AND SHOW!
 <title>Move the Dot Game</title>
 ```
 
-
 Step 5. Update the CSS code for ```.wrapper {}``` class to match below - STOP AND SHOW!
 
 ```
@@ -86,6 +85,4 @@ Step 8. Add the following to the bottom your script tag ```<script>``` tag - STO
 
     $(".start-game").on("click", function() {
         window.requestAnimationFrame(moveDot);
-    });
-```
-
+    });```
